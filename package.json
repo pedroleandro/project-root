@@ -1,0 +1,27 @@
+{
+  "name": "project-root",
+  "version": "1.0.0",
+  "description": "Project Base",
+  "authors": "Pedro Leandro",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedroleandro/project-root.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedroleandro/project-root/issues"
+  },
+  "homepage": "https://github.com/pedroleandro/project-root#readme"
+}

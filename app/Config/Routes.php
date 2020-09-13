@@ -35,15 +35,24 @@ $routes->get('/', 'Home::login');
 
 /**
  * --------------------------------------------------------------------
- * Router Auth
+ * Router Web
  * --------------------------------------------------------------------
  */
 
-// Rotas para autenticação de usuário, registro e solicitação de nova senha
+// Rotas para views de autenticação de usuário, registro e solicitação de nova senha
 $routes->get('/entrar', 'Home::login');
 $routes->get('/cadastrar', 'LoginController::register');
 $routes->get('/recuperar', 'LoginController::forget');
 $routes->get('/resetar', 'LoginController::reset');
+
+
+/**
+ * --------------------------------------------------------------------
+ * Router Auth
+ * --------------------------------------------------------------------
+ */
+$routes->post('/login', "AuthController::login");
+$routes->post('/register', "AuthController::register");
 
 /**
  * --------------------------------------------------------------------
