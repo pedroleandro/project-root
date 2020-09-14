@@ -30,7 +30,7 @@ class User extends Model
         parent::__construct($db, $validation);
     }
 
-    public function findByEmail(string $email): bool
+    public function emailExists(string $email): bool
     {
         $db = Database::connect();
         $query = $db->query('SELECT * FROM users WHERE email = ?', [$email]);
@@ -41,5 +41,31 @@ class User extends Model
         }
 
         return false;
+    }
+
+    public function findByEmail(string $email): array
+    {
+        $db = Database::connect();
+        $query = $db->query('SELECT * FROM users WHERE email = ?', [$email]);
+        $result = $query->getResultArray();
+
+        if(count($result) > 0){
+            return $result;
+        }
+
+        return [];
+    }
+
+    public function findById(string $id)
+    {
+        $db = Database::connect();
+        $query = $db->query('SELECT * FROM users WHERE id = ?', [$id]);
+        $result = $query->getResult();
+
+        if(count($result) > 0){
+            return $result;
+        }
+
+        return [];
     }
 }

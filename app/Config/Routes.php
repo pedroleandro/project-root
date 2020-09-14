@@ -5,9 +5,8 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
-	require SYSTEMPATH . 'Config/Routes.php';
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
+    require SYSTEMPATH . 'Config/Routes.php';
 }
 
 /**
@@ -31,7 +30,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');
-$routes->get('/', 'Home::login');
+$routes->get('/', 'LoginController::login');
 
 /**
  * --------------------------------------------------------------------
@@ -40,7 +39,7 @@ $routes->get('/', 'Home::login');
  */
 
 // Rotas para views de autenticação de usuário, registro e solicitação de nova senha
-$routes->get('/entrar', 'Home::login');
+$routes->get('/entrar', 'LoginController::login');
 $routes->get('/cadastrar', 'LoginController::register');
 $routes->get('/recuperar', 'LoginController::forget');
 $routes->get('/resetar', 'LoginController::reset');
@@ -53,6 +52,18 @@ $routes->get('/resetar', 'LoginController::reset');
  */
 $routes->post('/login', "AuthController::login");
 $routes->post('/register', "AuthController::register");
+$routes->post('/forget', "AuthController::forget");
+$routes->post('/reset', "AuthController::reset");
+
+
+/**
+ * --------------------------------------------------------------------
+ * Router Dashboard
+ * --------------------------------------------------------------------
+ */
+$routes->get('/painel', 'App::home');
+$routes->get('/sair', 'App::logoff');
+
 
 /**
  * --------------------------------------------------------------------
@@ -67,7 +78,6 @@ $routes->post('/register', "AuthController::register");
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
-	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
+    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
