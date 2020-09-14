@@ -17,6 +17,35 @@ class AuthController extends BaseController
 
     public function login()
     {
+        $data = $this->request->getPost();
+
+        $email = filter_var($data["email"], FILTER_VALIDATE_EMAIL);
+        $passwd = filter_var($data["passwd"], FILTER_DEFAULT);
+
+        $user = new User();
+
+        $json = [];
+        $json["status"] = 1;
+        $json["error"] = [];
+
+        if(!$email || !$passwd){
+            $json["status"] = 0;
+            $json["error"]["#btnLogin"] = "Whooops!!! Informe seu e-mail e sua senha corretamente!";
+        }
+
+        $user = (new User())->findByEmail($data["email"])[0];
+
+        if(empty($user) || !password_verify($passwd, $user["passwd"])){
+            $json["status"] = 0;
+            $json["error"]["#btnLogin"] = "Whooops!!! E-mail ou senha inválidos!";
+        }
+
+        if ($json["status"] == 1) {
+            $register = (new User())->findByEmail($data["email"]);
+            $this->session->set("user", $register[0]['id']);
+        }
+
+        echo json_encode($json);
 
     }
 
@@ -68,8 +97,6 @@ class AuthController extends BaseController
             $this->session->set("user", $register[0]['id']);
         }
         echo json_encode($json);
-
-
     }
 
     public function forget()

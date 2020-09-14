@@ -4,7 +4,6 @@
 namespace App\Controllers;
 
 
-use App\Core\Session;
 use App\Models\User;
 use Config\Services;
 
@@ -16,7 +15,9 @@ class App extends BaseController
     public function __construct()
     {
         $this->session = Services::session();
-        if (empty($_SESSION["user"])) {
+        if (!empty($_SESSION["user"])) {
+            $this->user = (new User)->findById($_SESSION["user"])[0];
+        }else{
             unset($_SESSION["user"]);
         }
     }
@@ -26,7 +27,7 @@ class App extends BaseController
         if (empty($_SESSION["user"])) {
             return redirect()->to(base_url() . "/public/entrar");
         } else {
-            return view('dashboard/home');
+            return view('dashboard/home', $this->user);
         }
     }
 

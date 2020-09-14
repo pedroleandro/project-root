@@ -60,7 +60,7 @@ class User extends Model
     {
         $db = Database::connect();
         $query = $db->query('SELECT * FROM users WHERE id = ?', [$id]);
-        $result = $query->getResult();
+        $result = $query->getResultArray();
 
         if(count($result) > 0){
             return $result;

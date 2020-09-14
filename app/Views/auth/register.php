@@ -23,9 +23,9 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
-                    <div class="login-brand">
-                        <img src="<?= base_url() ?>/stisla-master/assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
-                    </div>
+<!--                    <div class="login-brand">-->
+<!--                        <img src="--><?//= base_url() ?><!--/stisla-master/assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">-->
+<!--                    </div>-->
 
                     <div class="card card-primary">
                         <div class="card-header"><h4>Register</h4></div>
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     <div class="mt-5 text-muted text-center">
-                        Go back to login? <a href="entrar">Login</a>
+                        Back to login? <a href="entrar">Login</a>
                     </div>
                     <div class="simple-footer">
                         Copyright &copy; Stisla 2018
@@ -145,7 +145,7 @@
 <!-- Page Specific JS File -->
 <!--<script src="--><?//= base_url() ?><!--/stisla-master/assets/js/page/auth-register.js"></script>-->
 <script src="<?= base_url() ?>/stisla-master/assets/js/page/util.js"></script>
-<script src="<?= base_url() ?>/stisla-master/assets/js/page/form.js"></script>
+<script src="<?= base_url() ?>/stisla-master/assets/js/page/formRegister.js"></script>
 </body>
 </html>
 
