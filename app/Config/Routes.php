@@ -42,7 +42,7 @@ $routes->get('/', 'LoginController::login');
 $routes->get('/entrar', 'LoginController::login');
 $routes->get('/cadastrar', 'LoginController::register');
 $routes->get('/recuperar', 'LoginController::forget');
-$routes->get('/resetar', 'LoginController::reset');
+$routes->get('/senha/(:any)/(:any)', 'LoginController::reset');
 
 
 /**

@@ -75,3 +75,36 @@ defined('EXIT_USER_INPUT')     || define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+/*
+|--------------------------------------------------------------------------
+| SITE
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+define("CONF_SITE_NAME", "Project Root");
+
+/*
+|--------------------------------------------------------------------------
+| MAIL
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+define("CONF_MAIL_HOST", "smtp.sendgrid.net");
+define("CONF_MAIL_PORT", "587");
+define("CONF_MAIL_USER", "apikey");
+define("CONF_MAIL_PASS", "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");
+define("CONF_MAIL_SENDER", [
+    "name" => "Pedro Leandro",
+    "address" => "developerfsphp@gmail.com"
+]);
+
+define("CONF_MAIL_OPTION_LANG", "br");
+define("CONF_MAIL_OPTION_HTML", true);
+define("CONF_MAIL_OPTION_AUTH", true);
+define("CONF_MAIL_OPTION_SECURE", "tls");
+define("CONF_MAIL_OPTION_CHARSET", "utf-8");

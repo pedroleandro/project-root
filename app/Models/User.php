@@ -30,13 +30,29 @@ class User extends Model
         parent::__construct($db, $validation);
     }
 
+    public function findByEmailAndForget(string $email, string $forget): array
+    {
+        $db = Database::connect();
+        $query = $db->query('SELECT * FROM users WHERE email = :email: AND forget = :forget:', [
+            "email" => $email,
+            "forget" => $forget
+        ]);
+        $result = $query->getResultArray();
+
+        if (count($result) > 0) {
+            return $result;
+        }
+
+        return [];
+    }
+
     public function emailExists(string $email): bool
     {
         $db = Database::connect();
         $query = $db->query('SELECT * FROM users WHERE email = ?', [$email]);
         $result = $query->getResult();
 
-        if(count($result) > 0){
+        if (count($result) > 0) {
             return true;
         }
 
@@ -49,7 +65,7 @@ class User extends Model
         $query = $db->query('SELECT * FROM users WHERE email = ?', [$email]);
         $result = $query->getResultArray();
 
-        if(count($result) > 0){
+        if (count($result) > 0) {
             return $result;
         }
 
@@ -62,7 +78,7 @@ class User extends Model
         $query = $db->query('SELECT * FROM users WHERE id = ?', [$id]);
         $result = $query->getResultArray();
 
-        if(count($result) > 0){
+        if (count($result) > 0) {
             return $result;
         }
 

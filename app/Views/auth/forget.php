@@ -22,31 +22,31 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                    <div class="login-brand">
-                        <img src="<?= base_url() ?>/stisla-master/assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
-                    </div>
-
+<!--                    <div class="login-brand">-->
+<!--                        <img src="--><?//= base_url() ?><!--/stisla-master/assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">-->
+<!--                    </div>-->
                     <div class="card card-primary">
                         <div class="card-header"><h4>Forgot Password</h4></div>
 
                         <div class="card-body">
                             <p class="text-muted">We will send a link to reset your password</p>
-                            <form method="POST">
+                            <form id="formForget" name="formForget" action="forget" method="POST" autocomplete="off" novalidate="">
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                    <button id="btnForget" name="btnForget" type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                                         Forgot Password
                                     </button>
                                 </div>
+                                <span class="help-block"></span>
                             </form>
                         </div>
                     </div>
                     <div class="mt-5 text-muted text-center">
-                        Go back to login? <a href="entrar">Login</a>
+                        Back to login? <a href="entrar">Login</a>
                     </div>
                     <div class="simple-footer">
                         Copyright &copy; Stisla 2018
@@ -72,6 +72,8 @@
 <script src="<?= base_url() ?>/stisla-master/assets/js/custom.js"></script>
 
 <!-- Page Specific JS File -->
+<script src="<?= base_url() ?>/stisla-master/assets/js/page/util.js"></script>
+<script src="<?= base_url() ?>/stisla-master/assets/js/page/formForget.js"></script>
 </body>
 </html>
 
